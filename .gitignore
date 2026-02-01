@@ -15,3 +15,14 @@ out/
 .mvn/
 mvnw
 mvnw.cmd
+
+# --- Python & AI/ML Ignores ---
+venv/
+Ai_Ml/venv/
+__pycache__/
+*.pyc
+.idea/
+.vscode/
+.env
+*.mp3
+*.wav
