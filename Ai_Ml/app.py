@@ -1,6 +1,7 @@
 # app.py
 from flask import Flask, request, jsonify
 import os
+from language_detector import detect_language
 
 # Keep your existing imports!
 from decoder import decode_audio
@@ -48,8 +49,22 @@ def analyze_voice():
         audio_path = decode_audio(audio_base64)
         print(f"✅ Audio decoded to: {audio_path}")
 
+        # ---------------- LANGUAGE DETECTION (OPTIONAL & SAFE) ----------------
+        detected_language = None
         try:
-            # Detection logic
+            from language_detector import detect_language
+            detected_language = detect_language(audio_path)
+            print(f"🌍 Detected language: {detected_language}")
+        except Exception as e:
+            print(f"⚠️ Language detection skipped: {e}")
+
+        # If client did NOT send language, use detected one
+        if "language" not in data and detected_language:
+            language = detected_language
+        # --------------------------------------------------------------------
+
+        try:
+            # ---------------- AI vs HUMAN DETECTION ----------------
             if USE_ML:
                 try:
                     from detector_ml import ml_detect
@@ -59,9 +74,10 @@ def analyze_voice():
                     classification, confidence, explanation = signal_detect(audio_path)
             else:
                 classification, confidence, explanation = signal_detect(audio_path)
-        
+            # -------------------------------------------------------
+
         finally:
-            # Cleanup file
+            # Cleanup temporary file (ALWAYS)
             if os.path.exists(audio_path):
                 os.remove(audio_path)
                 print("🧹 Cleaned up temporary file.")
