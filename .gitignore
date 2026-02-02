@@ -1,69 +1,27 @@
-# Node modules
+# Node & React
 node_modules/
-
-# Build output
-build/
 dist/
-
-# npm package logs
-npm-debug.log
-yarn-error.log
-
-# Environment files
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# IDEs and editors
-.vscode/
-.idea/
-
-# MacOS files
-.DS_Store
-
-# Windows files
-Thumbs.db
-
-# Log files
-*.log
-
-# Testing
-coverage/
-
-# Parcel-bundler cache
-.cache/
-
-# Storybook
-out/
-storybook-static/
-
-# Optional eslint cache
+build/
 .eslintcache
 
+# Environment & Secrets
+.env
+.env.local
 
+# IDEs
+.vscode/
 .idea/
-*.iws
 *.iml
-*.ipr
 
+# OS files
+.DS_Store
+Thumbs.db
 
+# Backend & AI/ML
 target/
-.gradle/
-build/
-out/
-.mvn/
-mvnw
-mvnw.cmd
-
-# --- Python & AI/ML Ignores ---
 venv/
 Ai_Ml/venv/
 __pycache__/
 *.pyc
-.idea/
-.vscode/
-.env
 *.mp3
 *.wav
