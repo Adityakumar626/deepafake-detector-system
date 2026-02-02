@@ -53,32 +53,38 @@ function App() {
   };
 
   const sendToServer = async (base64Data) => {
+    // ... (fetch code remains same) ...
+    const payload = { audio_data: base64Data };
+
     try {
       const response = await fetch(
-        "https://ungrateful-noninflationary-pinkie.ngrok-free.dev/analyze",
+        "https://ungrateful-noninflationary-pinkie.ngrok-free.dev/analyze", // ⚠️ Check URL path! Is it /analyze or /api/analyze?
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "ngrok-skip-browser-warning": "69420",
             "x-api-key": "team-hackathon-secret-123",
-            "ngrok-skip-browser-warning": "true",
           },
-          body: JSON.stringify({ audio_data: base64Data }),
+          body: JSON.stringify(payload),
         },
       );
 
-      const data = await response.json();
-      setResult(data);
+      if (!response.ok) throw new Error("Server response was not OK");
 
-      // If Person 2 returns "AI_GENERATED", we show error. If "HUMAN", success.
-      setStatus(data.classification_result === "HUMAN" ? "success" : "error");
-    } catch (err) {
-      console.error(err);
-      alert("Java Backend not found! Ensure Person 4's server is on.");
+      const data = await response.json();
+      console.log("✅ Backend Replied:", data);
+
+      const resultType = data.classification?.trim().toUpperCase();
+
+      setStatus(resultType === "HUMAN" ? "success" : "error");
+      setResult(data);
+    } catch (error) {
+      console.error("The specific error is:", error.message);
+      alert("Connection error: " + error.message);
       setStatus("idle");
     }
   };
-
   // --- UI ---
 
   return (
@@ -122,14 +128,10 @@ function App() {
             <ShieldCheck size={80} />
             <h2 className="text-2xl font-bold mt-4">Verified Human</h2>
             <p className="text-slate-400">
-              Confidence: {(result?.confidence_score * 100).toFixed(1)}%
+              {/* 🔴 FIX: Use result?.confidenceScore */}
+              Confidence: {(result?.confidenceScore * 100).toFixed(1)}%
             </p>
-            <button
-              onClick={() => setStatus("idle")}
-              className="mt-6 flex items-center gap-2 text-slate-300 hover:text-white transition-colors"
-            >
-              <RefreshCcw size={16} /> Scan Another
-            </button>
+            {/* ... button ... */}
           </div>
         )}
 
@@ -139,14 +141,10 @@ function App() {
             <AlertCircle size={80} />
             <h2 className="text-2xl font-bold mt-4">Deepfake Detected</h2>
             <p className="text-slate-400">
-              Probability: {(result?.confidence_score * 100).toFixed(1)}%
+              {/* 🔴 FIX: Use result?.confidenceScore */}
+              Probability: {(result?.confidenceScore * 100).toFixed(1)}%
             </p>
-            <button
-              onClick={() => setStatus("idle")}
-              className="mt-6 flex items-center gap-2 text-slate-300 hover:text-white transition-colors"
-            >
-              <RefreshCcw size={16} /> Try Again
-            </button>
+            {/* ... button ... */}
           </div>
         )}
 

@@ -1,2 +1,52 @@
-echo "node_modules/" > .gitignore
-echo ".DS_Store" >> .gitignore
+# Node modules
+node_modules/
+
+# Build output
+build/
+dist/
+
+# npm package logs
+npm-debug.log
+yarn-error.log
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# MacOS files
+.DS_Store
+
+# Windows files
+Thumbs.db
+
+# Log files
+*.log
+
+# React Native
+.expo/
+
+# Testing
+coverage/
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Parcel-bundler cache
+.cache/
+
+# Next.js
+.next/
+
+# Storybook
+out/
+storybook-static/
+
+# Optional eslint cache
+.eslintcache
