@@ -1,28 +1,27 @@
-echo "node_modules/" > .gitignore
-echo ".DS_Store" >> .gitignore
-
-
-.idea/
-*.iws
-*.iml
-*.ipr
-
-
-target/
-.gradle/
+# Node & React
+node_modules/
+dist/
 build/
-out/
-.mvn/
-mvnw
-mvnw.cmd
+.eslintcache
 
-# --- Python & AI/ML Ignores ---
+# Environment & Secrets
+.env
+.env.local
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Backend & AI/ML
+target/
 venv/
 Ai_Ml/venv/
 __pycache__/
 *.pyc
-.idea/
-.vscode/
-.env
 *.mp3
 *.wav
