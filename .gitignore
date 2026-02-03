@@ -17,7 +17,7 @@ mvnw
 mvnw.cmd
 
 # --- Python & AI/ML Ignores ---
-venv/
+.venv310/
 Ai_Ml/venv/
 __pycache__/
 *.pyc
