@@ -1,0 +1,8 @@
+flask
+transformers
+torch
+librosa
+numpy
+soundfile
+uuid
+openai-whisper

@@ -49,6 +49,26 @@ storybook-static/
 *.ipr
 
 
+# Node & React
+node_modules/
+dist/
+build/
+.eslintcache
+
+# Environment & Secrets
+.env
+.env.local
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Backend & AI/ML
 target/
 .gradle/
 build/
@@ -58,6 +78,7 @@ mvnw
 mvnw.cmd
 
 # --- Python & AI/ML Ignores ---
+.venv310/
 venv/
 Ai_Ml/venv/
 __pycache__/
