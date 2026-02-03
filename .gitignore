@@ -29,20 +29,11 @@ Thumbs.db
 # Log files
 *.log
 
-# React Native
-.expo/
-
 # Testing
 coverage/
 
-# Yarn Integrity file
-.yarn-integrity
-
 # Parcel-bundler cache
 .cache/
-
-# Next.js
-.next/
 
 # Storybook
 out/
@@ -50,3 +41,50 @@ storybook-static/
 
 # Optional eslint cache
 .eslintcache
+
+
+.idea/
+*.iws
+*.iml
+*.ipr
+
+
+# Node & React
+node_modules/
+dist/
+build/
+.eslintcache
+
+# Environment & Secrets
+.env
+.env.local
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Backend & AI/ML
+target/
+.gradle/
+build/
+out/
+.mvn/
+mvnw
+mvnw.cmd
+
+# --- Python & AI/ML Ignores ---
+.venv310/
+venv/
+Ai_Ml/venv/
+__pycache__/
+*.pyc
+.idea/
+.vscode/
+.env
+*.mp3
+*.wav
