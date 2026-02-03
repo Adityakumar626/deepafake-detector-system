@@ -53,7 +53,6 @@ function App() {
   };
 
   const sendToServer = async (base64Data) => {
-    // ... (fetch code remains same) ...
     const payload = { audio_data: base64Data };
 
     try {
@@ -128,9 +127,10 @@ function App() {
             <ShieldCheck size={80} />
             <h2 className="text-2xl font-bold mt-4">Verified Human</h2>
             <p className="text-slate-400">
-              {/* 🔴 FIX: Use result?.confidenceScore */}
               Confidence: {(result?.confidenceScore * 100).toFixed(1)}%
             </p>
+            <p className="text-slate-400">Explanation: {result?.explanation}</p>
+            <p className="text-slate-400">Language: {result?.language}</p>
             {/* ... button ... */}
           </div>
         )}
@@ -140,15 +140,29 @@ function App() {
           <div className="flex flex-col items-center text-red-500">
             <AlertCircle size={80} />
             <h2 className="text-2xl font-bold mt-4">Deepfake Detected</h2>
-            <p className="text-slate-400">
-              {/* 🔴 FIX: Use result?.confidenceScore */}
-              Probability: {(result?.confidenceScore * 100).toFixed(1)}%
-            </p>
+            <div className="text-center">
+              <p className="text-slate-400">
+                Probability: {(result?.confidenceScore * 100).toFixed(1)}%
+              </p>
+              <p className="text-slate-400">
+                Explanation:{" "}
+                {result?.explanation?.split(" ").slice(0, 3).join(" ")}
+              </p>
+              <p className="text-slate-400">Language: {result?.language}</p>
+            </div>
             {/* ... button ... */}
           </div>
         )}
 
-        <p className="mt-8 text-slate-500 text-xs font-mono uppercase tracking-widest">
+        <p
+          className={`mt-8 text-sm font-mono uppercase tracking-widest transition-all duration-500 ${
+            status === "success"
+              ? "text-green-500 font-bold"
+              : status === "error"
+                ? "text-red-500 font-bold animate-slow-blink"
+                : "text-slate-500"
+          }`}
+        >
           {status === "idle" ? "System Ready" : status}
         </p>
       </div>
