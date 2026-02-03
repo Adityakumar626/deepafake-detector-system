@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@keyframes slowBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-slow-blink {
+  animation: slowBlink 1.6s infinite alternate;
+}
