@@ -131,7 +131,6 @@ function App() {
             </p>
             <p className="text-slate-400">Explanation: {result?.explanation}</p>
             <p className="text-slate-400">Language: {result?.language}</p>
-            {/* ... button ... */}
           </div>
         )}
 
@@ -150,7 +149,6 @@ function App() {
               </p>
               <p className="text-slate-400">Language: {result?.language}</p>
             </div>
-            {/* ... button ... */}
           </div>
         )}
 

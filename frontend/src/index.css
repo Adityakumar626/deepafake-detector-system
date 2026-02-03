@@ -11,5 +11,5 @@
 }
 
 .animate-slow-blink {
-  animation: slowBlink 1.5s infinite alternate;
+  animation: slowBlink 1.6s infinite alternate;
 }
