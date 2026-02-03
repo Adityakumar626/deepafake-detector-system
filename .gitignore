@@ -19,6 +19,15 @@ Thumbs.db
 
 # Backend & AI/ML
 target/
+.gradle/
+build/
+out/
+.mvn/
+mvnw
+mvnw.cmd
+
+# --- Python & AI/ML Ignores ---
+.venv310/
 venv/
 Ai_Ml/venv/
 __pycache__/

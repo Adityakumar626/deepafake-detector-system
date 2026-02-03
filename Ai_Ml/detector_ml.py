@@ -5,7 +5,7 @@ from transformers import pipeline
 # Load once at startup (production practice)
 audio_classifier = pipeline(
     task="audio-classification",
-    model="mo-thecreator/Deepfake-audio-detection"
+    model="MelodyMachine/Deepfake-audio-detection-V2"
 )
 
 def ml_detect(audio_path: str):
