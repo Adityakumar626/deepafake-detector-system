@@ -56,18 +56,15 @@ function App() {
     const payload = { audio_data: base64Data };
 
     try {
-      const response = await fetch(
-        "https://ungrateful-noninflationary-pinkie.ngrok-free.dev/analyze", // ⚠️ Check URL path! Is it /analyze or /api/analyze?
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "ngrok-skip-browser-warning": "69420",
-            "x-api-key": "team-hackathon-secret-123",
-          },
-          body: JSON.stringify(payload),
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URI}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "ngrok-skip-browser-warning": "69420",
+          "x-api-key": `${import.meta.env.VITE_BACKEND_API}`,
         },
-      );
+        body: JSON.stringify(payload),
+      });
 
       if (!response.ok) throw new Error("Server response was not OK");
 
