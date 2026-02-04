@@ -129,7 +129,10 @@ function App() {
             <p className="text-slate-400">
               Confidence: {(result?.confidenceScore * 100).toFixed(1)}%
             </p>
-            <p className="text-slate-400">Explanation: {result?.explanation}</p>
+            <p className="text-slate-400">
+              Explanation:{" "}
+              {result?.explanation?.split(" ").slice(0, 3).join(" ")}
+            </p>
             <p className="text-slate-400">Language: {result?.language}</p>
           </div>
         )}
