@@ -123,14 +123,16 @@ function App() {
           <div className="flex flex-col items-center text-green-400">
             <ShieldCheck size={80} />
             <h2 className="text-2xl font-bold mt-4">Verified Human</h2>
-            <p className="text-slate-400">
-              Confidence: {(result?.confidenceScore * 100).toFixed(1)}%
-            </p>
-            <p className="text-slate-400">
-              Explanation:{" "}
-              {result?.explanation?.split(" ").slice(0, 3).join(" ")}
-            </p>
-            <p className="text-slate-400">Language: {result?.language}</p>
+            <div className="text-center">
+              <p className="text-slate-400">
+                Confidence: {(result?.confidenceScore * 100).toFixed(1)}%
+              </p>
+              <p className="text-slate-400">
+                Explanation:{" "}
+                {result?.explanation?.split(" ").slice(0, 3).join(" ")}
+              </p>
+              <p className="text-slate-400">Language: {result?.language}</p>
+            </div>
           </div>
         )}
 
